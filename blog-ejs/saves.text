@@ -1,0 +1,51 @@
+Navbar - Personal made
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+  <span class="navbar-brand ml-3">My Journal</span>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navItem" aria-controls="navItem" aria-expanded="false" aria-label="Toggle navigation" type="button" name="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navItem">
+    <div class="navbar-nav ml-auto ml-3">
+      <a class="nav-item nav-link" href="#Home">Home</a>
+      <a class="nav-item nav-link" href="#About Us">About Us</a>
+      <a class="nav-item nav-link" href="#Contact Us">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+javascript foreach naturally have 2 parameters(could be more)
+posts.forEach(function(value , index){
+  console.log("Post " + (index + 1) + "\n"
+  + "Title = " + value.title + "\n"
+  + "Post = " + value.post);
+});
+
+//Ejs printing posts personal code with for each
+<% ejs_posts.forEach(function(value, index){ %>
+  <h1><%=value.title %></h1>
+  <p><%=value.post %></p>
+<% }) %>
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+truncating 100 words - personal
+
+<script src="jquery/jquery-3.6.0.slim.min.js"></script>
+<script>
+  function simplify(pText){
+    let newPText = "";
+    if(pText.length > 100){
+      //console.log("Some Success");
+      newPText = pText.substring(0,99) + "...";
+    }
+    return newPText;
+  }
+  let affected = $("p.truncate");
+  for(let i = 0 ; i < affected.length; i++){
+    affected[i].textContent = simplify(affected[i].textContent);
+  }
+</script>

@@ -1,0 +1,38 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+
+app.use(bodyParser.urlencoded({extended : true}));
+
+app.get("/", function(request,response){
+
+  //creating date object to get index of the current day in the week
+  let date_obj = new Date();
+  //creating map to insert index and day names
+  const days = new Map();
+
+  //set days
+  days.set(0,"Sunday");
+  days.set(1,"Monday");
+  days.set(2,"Tuesday");
+  days.set(3,"Wednesday");
+  days.set(4,"Thursday");
+  days.set(5,"Friday");
+  days.set(6,"Saturday");
+
+  //get current day name
+  var dayToday = days.get(date_obj.getDay());
+
+  //send a response
+  response.write("<h2> " + dayToday + " </h2>");
+  response.write("<h3>Server is up !</h3>");
+  response.send();
+
+});
+
+app.listen(3000, function(){
+  console.log("Server has started on port 3000");
+  console.log("Server Details");
+  console.log("1. Sets up server for a to-do-list web application with Angela");
+  console.log("2. Author is Simranjeet Singh");
+})
